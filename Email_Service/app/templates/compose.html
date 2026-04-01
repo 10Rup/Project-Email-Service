@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Compose Email</h2>
+
+<form action="/emails/send" method="post" enctype="multipart/form-data">
+
+<label>To:</label><br>
+<input name="receiver" required>
+
+<br><br>
+
+<label>Subject:</label><br>
+<input name="subject">
+
+<br><br>
+
+<label>Message:</label><br>
+<textarea name="body" rows="8" cols="50"></textarea>
+
+<br><br>
+
+<label>Attachment:</label><br>
+<input type="file" name="file">
+
+<br><br>
+
+<button type="submit">Send Email</button>
+
+</form>
+
+{% endblock %}

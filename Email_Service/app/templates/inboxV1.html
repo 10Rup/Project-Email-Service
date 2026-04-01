@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Email Inbox</title>
+
+</head>
+
+<body>
+    <!-- <h1>{{ request.session.get("user") }}</h1> -->
+    <h2>Inbox</h2>
+
+    <a href="/compose">Compose Email</a>
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Date</th>
+
+        </tr>
+
+        {% for email in emails %}
+
+        <tr>
+
+            <td>{{ email.sender }}</td>
+
+            <td>
+                <a href="/thread/{{ email.thread_id }}">
+                    {{ email.subject }}
+                </a>
+            </td>
+
+            <td>{{ email.created_at }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+
+</html>

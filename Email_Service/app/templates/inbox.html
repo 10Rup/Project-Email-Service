@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Inbox</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+<th>Sender</th>
+<th>Subject</th>
+<th>Date</th>
+</tr>
+
+{% for email in emails %}
+
+<tr>
+<td>{{ email.sender }}</td>
+
+<td>
+<a href="/thread/{{ email.thread_id }}">
+{{ email.subject }}
+</a>
+</td>
+
+<td>{{ email.created_at }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

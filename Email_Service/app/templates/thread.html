@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Email Conversation</h2>
+
+{% for email in emails %}
+
+<div style="border:1px solid black; padding:10px; margin-bottom:10px;">
+
+<b>From:</b> {{ email.sender }} <br>
+<b>To:</b> {{ email.receiver }} <br>
+<b>Date:</b> {{ email.created_at }} <br>
+
+<br>
+
+<p>{{ email.body }}</p>
+
+</div>
+
+{% endfor %}
+
+<hr>
+
+<h3>Reply</h3>
+
+<form action="/emails/reply" method="post">
+
+<input type="hidden" name="thread_id" value="{{ thread_id }}">
+
+<label>To:</label><br>
+<input name="receiver" required>
+
+<br><br>
+
+<label>Message:</label><br>
+<textarea name="body"></textarea>
+
+<br><br>
+
+<button type="submit">Send Reply</button>
+
+</form>
+
+{% endblock %}
