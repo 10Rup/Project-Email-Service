@@ -5,7 +5,7 @@ from .routes import users, emails, labels, pages
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-app = FastAPI()
+app = FastAPI(root_path="/email")
 
 app.add_middleware(SessionMiddleware, secret_key="SUPER_SECRET_KEY")
 
